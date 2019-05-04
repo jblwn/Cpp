@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a, b, c;
+	
+	cout << "Enter first number: ";
+	cin >> a;
+	cout << "Enter second number: ";
+	cin >> b;
+	cout << "Enter third number: ";
+	cin >> c;
+	
+	if (b<a && c<a)
+		cout << "The LARGEST of the three number is " << a;
+	else if (a<b && c<b)
+		cout << "The LARGEST of the three number is " << b;
+	else
+		cout << "The LARGEST of the three number is " << c;
+	return 0;
+}
