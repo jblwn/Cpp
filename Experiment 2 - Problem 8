@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int nmbr, rpt;
+	
+	cout << "Enter a number: ";
+	cin >> nmbr;
+	cout << "Multiplication table of " << nmbr << ":\n";
+	for (rpt=1;rpt<=10;rpt++)
+	{
+		cout << rpt << "*" << nmbr << "=" << rpt*nmbr << "\n";
+	}
+	return 0;
+}
