@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int hrs;
+	char pckg;
+	cout << "SUBSCRIPTION PACKAGES\n";
+	cout << "Package A: For P995/mo, 10 hours of access are provided. Additional hours are P20/hour\n";
+	cout << "Package B: For P1495/mo, 20 hours of access are provided. Additional hours are P10/hour\n";
+	cout << "Package C: For P1995/mo of unlimited access is provided.\n\n";
+	
+	cout << "Enter package you purchased: ";
+	cin >> pckg;
+	cout <<"Enter hour/s used: ";
+	cin >> hrs;
+	
+	switch (pckg)
+	{
+		case 'A':
+		case 'a':
+			if (0<=hrs && hrs<=10)
+				cout << "Total Amount Due: P" << (995);
+			else if (10<hrs)
+				cout << "Total Amount Due: P" << (995 + (20 * (hrs - 10)));
+			break;
+		case 'B':
+ 		case 'b':
+ 			if (0<=hrs && hrs<=20)
+ 				cout << "Total Amount Due: P" << (1495);
+ 			else if (20<hrs)
+			 	cout << "Total Amount Due: P" << (1495 + (10 * (hrs - 20)));
+ 			break;
+ 		case 'C':
+ 		case 'c':
+ 			cout << "Total Amount Due: P" << (1995);
+ 			break;
+ 		default:
+ 			cout << "Invalid input!";			
+	}
+	return 0;
+}
