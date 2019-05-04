@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	 int rpt, rpt2, a, b;
+	 
+	 cout << "How many rows: ";
+	 cin >> a;
+	 cout << "How many columns: ";
+	 cin >> b;
+	 
+	 for(rpt=1;rpt<=a;rpt++)
+	 {
+	 	for(rpt2=1;rpt2<=b;rpt2++)
+	 	{
+	 		cout << '*';
+		}
+		cout << "\n";
+	 }
+	 return 0;
+}
