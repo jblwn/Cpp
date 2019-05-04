@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a, b, c, rpt;
+	a=0;
+	b=1;
+	
+	cout << "Fibonacci numbers: \n";
+	cout << "0,1,";
+	for (rpt=1;rpt<=20;rpt++)
+	{
+		c=a+b;
+		a=b;
+		b=c;
+		if (rpt==20)
+		{
+			cout << c;
+			continue;
+		}
+		cout << c << ",";
+	}
+	return 0;
+}
