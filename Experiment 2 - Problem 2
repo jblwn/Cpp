@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	char b;
+	double sum, a, c;
+	
+	cout << "Gallon/s used: ";
+	cin >> a;
+	
+	cout << "Do you have an unpaid balance?(Y/N): ";
+	cin >> b;
+	
+	cout << "How much does your unpaid balance: ";
+	cin >> c;
+	
+	switch (b)
+	{
+		case 'Y':
+		case 'y':
+			sum=(c+55+(1.10*a));
+			cout << "Your water bill is P" << sum;
+			break;
+			
+		case 'N':
+		case 'n':
+			sum=(c+35+(1.10*a));
+			cout << "Your water bill is P" << sum;
+			break;
+			
+		default:
+			cout << "You must choose between 'Y' for YES and 'N' for NO only.";
+			break;
+	}
+	return 0;
+}
