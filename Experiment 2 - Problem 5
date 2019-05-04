@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int rpt, rpt2;
+	
+	cout << "Counting...\n";
+	for (rpt=1;rpt<=10;rpt++)
+	{
+		cout << rpt << ',';
+	}
+	for (rpt2=12;rpt2<=28;rpt2=rpt2+2)
+	{
+		cout << rpt2 << ',';
+	}
+	cout << "30";
+	return 0;
+}
