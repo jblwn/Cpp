@@ -1,0 +1,39 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+	int main()
+	{
+		double set[10];
+		double d, sum=0;
+		int input, a, b, c;
+		
+		cout << "Input the 10 integers:\n";
+		
+		for (a=0;a<10;a++)
+		{
+			cin >> set[a];
+			sum = sum + set[a];
+		}
+		
+		for (a=0;a<10;a++)
+		{
+			for (b=a+1;b<10;b++)
+			{
+				if (set[a]>set[b])
+				{
+					c = set[a];
+					set[a] = set[b];
+					set[b] = c;
+				}
+			}
+		}
+		
+		cout << "The smallest integer is: " << set[0] << '\n';
+		cout << "The largest integer is: " << set[9] << '\n';
+		cout << "Sum: " << sum << '\n';
+		d=(sum/10);
+		cout << setprecision(2) << fixed;
+		cout << "Average: " << d;
+		return 0;
+	}
