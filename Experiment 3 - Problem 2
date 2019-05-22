@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	char prov[3][20]= {"Province A, Day ", "Province B, Day ", "Province C, Day "};
+	int prova[7];
+	int provb[7];
+	int provc[7];
+	int a, b, c;
+	
+	cout << "Enter all temperature for a week of Province A, Province B, and then Province C.\n\n";
+	
+	for (a=0;a<3;a++)
+	{
+		for (b=0;b<7;b++)
+		{
+			cout << prov[a];	
+			cout << (b+1) << ": ";
+			if (a==0)
+				cin >> prova[b];
+			else if (a==1)
+				cin >> provb[b];
+			else
+				cin >> provc[b];
+		}
+	}
+	
+	cout << "\n\nDisplaying Values:\n";
+
+	for (a=0;a<3;a++)
+	{
+		for (b=0;b<7;b++)
+		{
+			cout << prov[a];	
+			cout << (b+1) << "= ";
+			if (a==0)
+				cout << prova[b] << '\n';
+			else if (a==1)
+				cout << provb[b] << '\n';
+			else
+				cout << provc[b] << '\n';
+		}
+	}
+	return 0;
+}
