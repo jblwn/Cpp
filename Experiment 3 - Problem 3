@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a, b;
+	
+	cout << "Enter the size of the array: ";
+	cin >> a;
+	
+	char array[a];
+	
+	cout << "Input the letters for the array:\n";
+	
+	for (b=0;b<a;b++)
+	{
+		cin >> array[b];
+	}
+	
+	cout << "The reverse order of the array: ";
+	
+	for (b=a-1;b>=0;b--)
+	{
+		cout << array[b];
+	}
+	
+	cout << "\nThe size of the array: " << a;
+	return 0;
+}
