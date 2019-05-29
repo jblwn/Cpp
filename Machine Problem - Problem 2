@@ -1,0 +1,123 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double angleA (double a, double b, double c);
+double angleB (double a, double b, double c);
+double angleC (double a, double b, double c);
+double perimeter (double a, double b, double c);
+double area (double a, double b, double c);
+double leci (double a, double b, double c);
+
+
+int main ()
+{
+	int q, w, e;
+	double a, b, c, angle1, angle2, angle3, per, ar, r;
+	
+	cout << "\t\t-----TRIANGLE-----\n\n";
+	
+	cout << "Enter the 1st side of the triangle:\n";
+	cin >> a; // input of the first side of the triangle
+	cout << "Enter the 2nd side of the triangle:\n";
+	cin >> b; // input of the second side of the triangle
+	cout << "Enter the 3rd side of the triangle:\n";
+	cin >> c; // input of the third side of the triangle
+	
+	angle1=angleA (a, b, c);
+	angle2=angleB (a, b, c);
+	angle3=angleC (a, b, c);
+	
+	cout << "\nA:";
+	cout << "\nAngle A: " << angle1 << " degrees";
+	cout << "\nAngle B: " << angle2 << " degrees";
+	cout << "\nAngle C: " << angle3 << " degrees";
+	cout << "\nSum of All Interior Angles: " << angle1+angle2+angle3 << " degrees";
+	
+	cout << "\n\nB:";
+	cout << "\nTriangle classification based on its sides: ";
+	if (a!=b && b!=c)
+		cout << "Scalene Triangle";
+	else if (a==b && b==c)
+		cout << "Equilateral Triangle";
+	else
+		cout << "Isosceles Triangle";
+	
+	per=perimeter (a, b, c);
+	ar=area (a, b, c);
+	
+	cout << "\n\nC:";
+	cout << "\nPerimeter: " << per;
+	cout << "\nArea: " << ar;
+	
+	q=angle1;
+	w=angle2;
+	e=angle3;
+	
+	cout << "\n\nD:";
+	cout << "\nTriangle classification based on its interior angles: ";
+	if (q<90 && w<90 && e<90)
+		cout << "Acute Triangle";
+	else if (q==90 || w==90 || e==90)
+		cout << "Right Triangle";
+	else if (q>90 || w>90 || e>90)
+		cout << "Obtuse Triangle";
+		
+	r=leci (a, b, c);
+		
+	cout << "\n\nE:";
+	if (a==b && b==c)
+		cout << "\nLength of Apothem: " << 2*ar/per;
+	else
+		cout << "\nLength of Apothem: n/a";
+	cout << "\nLength of Circumcenter: " << r; 
+	
+
+	
+	return 0;
+}
+
+
+double angleA (double a, double b, double c) // Function in getting Interior Angle A
+{
+	double q, w;
+	q=((pow(b,2))+(pow(c,2))-(pow(a,2)))/(2*b*c); // formula in getting radian of Angle A
+	w=acos(q)*180/3.1415926535; // conversion of radians to degrees Angle A
+	return (w);
+}
+
+double angleB (double a, double b, double c) // Function in getting Interior Angle B
+{
+	double q, w;
+	q=((pow(c,2))+(pow(a,2))-(pow(b,2)))/(2*c*a); // formula in getting radian of Angle B
+	w=acos(q)*180/3.1415926535; // conversion of radians to degrees Angle B
+	return (w);
+}
+
+double angleC (double a, double b, double c)  // Function in getting Interior Angle C
+{
+	double q, w;
+	q=((pow(a,2))+(pow(b,2))-(pow(c,2)))/(2*a*b); // formula in getting radian of Angle C
+	w=acos(q)*180/3.1415926535; // conversion of radians to degrees Angle C
+	return (w);
+}
+
+double perimeter (double a, double b, double c)
+{
+	return (a+b+c); // formula in getting the perimeter
+}
+
+double area (double a, double b, double c) // Function in getting the Area of the Triangle
+{
+	double q, w;
+	q=(a+b+c)/2; //formula in getting the semi-perimeter
+	w=sqrt(q*(q-a)*(q-b)*(q-c)); // finding the area of the triangle using the semi-perimeter
+	return (w);
+}
+
+double leci (double a, double b, double c) //Function in getting the length of the circumcenter 
+{
+	double q;
+	q=(a*b*c)/sqrt((a+b+c)*(b+c-a)*(c+a-b)*(a+b-c)); // formula in getting the length of the circumcenter
+	return (q);
+}
