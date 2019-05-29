@@ -1,0 +1,211 @@
+#include<iostream>
+#include<string>
+#include<stdlib.h>
+
+using namespace std;
+
+int main ()
+{
+	float finalgrade[50]; //Array for Final Grades
+	string name[50]; //Array for Student's Name
+		int s1;
+   		string s2;
+	
+	cout<<"\t ----CLASS RECORD----- \n\n";
+	for(int i=0;i<50;i++)
+	{
+		
+		//Student's Name
+		cout<<"Enter Student name: ";
+		getline(cin,name[i]); //Input Student Name
+		cout << endl;
+	
+		//Calculates the Percentage of Individual Reports
+	    float IGgrade[10], IGaverage, IGcompute ,IGtransmu;
+	    IGcompute=0;
+		cout<<"Enter grades for Individual Report : \n";
+		for(int j=0;j<10;j++){ 	
+			cout<<"Enter score "<< j+1 << ": ";
+			cin>> IGgrade[j]; //Input Grades
+			
+			if(IGgrade[j]<=100 && IGgrade[j]>=0)
+				IGcompute+=IGgrade[j];
+			else{
+				cout<<"Invalid grade!"<<endl;
+				j--;
+				}
+		}
+		IGaverage=IGcompute/10;
+		IGtransmu=IGaverage*0.15;
+		cout<< "\n Individual Reports Percentage : " << IGtransmu << "\n\n";
+		
+		//Calculates the Percentage of Group Reports	
+		float Ggrade[10], Ggrades, Gcomp, Gtransmu;
+		Gcomp=0;
+		cout<<"Enter grades for Group Report :\n";
+		for(int k=0;k<10;k++){	
+			cout<<"Enter score "<< k+1 <<": ";
+			cin>> Ggrade[k]; // Input Grades
+			if(Ggrade[k]<=100 && Ggrade[k]>=0)
+				Gcomp+=Ggrade[k];
+			else{
+				cout<<"Invalid grade!"<<endl;
+				k--;
+			}
+		}
+		Ggrades=Gcomp/10;
+		Gtransmu=Ggrades*0.25;
+		cout<< "\n Group Reports Percentage : " <<  Gtransmu << "\n\n";
+	 
+	 	//Calculates the Percentage of Quizzes	
+		float quiz[2],quizzes;
+		quizzes=0;
+		cout<<"Enter grades for Quizzes :\n";
+		  for (int l=0;l<2;l++){
+			cout<<"Enter score: "<< l+1 << " :";
+			cin>>quiz[l]; //Input Grades
+			
+			if(quiz[l]<=100 && quiz[l]>=0)
+				quizzes+=(quiz[l]* 0.10);
+			else{
+				cout<<"Invalid grade!"<<endl;
+				l--;
+			}
+		} cout<< "\n Quizzes Percentage : " << quizzes<< "\n\n";
+		
+		//Calculates the Percentage of Preliminary Examination
+		float prewritten,prepractical, PrelimsGrade;
+		cout<<"-----Major Examinations------  \n";
+		cout<<"Preliminary Examination"<<endl;
+	
+		cout<<"\tEnter score for written part: ";
+		cin>> prewritten; //Input Grades
+		while(!(prewritten<=30 && prewritten>=0)){
+			cout<<"\tInvalid grade! "<<endl;
+			cout<<"\tEnter score for written part: ";
+			cin>>prewritten;
+			cout<<endl;
+		}
+		
+		cout<<"\tEnter score for practical part: ";
+		cin>>prepractical; //Input Grades
+		while(!(prepractical<=70 && prepractical>=0)){
+			cout<<"\tInvalid grade! "<<endl;
+			cout<<"\tEnter score for practical part: ";
+			cin>>prepractical;
+		}
+		cout << endl;
+				
+		PrelimsGrade=prewritten+prepractical;
+		cout << " Preliminary Examination Grade : "<< PrelimsGrade*0.20<< "\n\n";
+	
+		//Calculates the Percentage of Finals Examination
+		float fwritten,fpractical, FinalsGrade;
+		cout<<"Finals Examination"<<endl;
+	
+		cout<<"\tEnter score for written part: ";
+		cin>> fwritten; //Input Grades
+		while(!(fwritten<=30 && fwritten>=0)){
+			cout<<"\tInvalid grade! "<<endl;
+			cout<<"\tEnter score for written part: ";
+			cin>>fwritten;
+			cout<<endl;
+		}
+		
+		cout<<"\tEnter score for practical part: ";
+		cin>>fpractical; //Input Grades
+		while(!(fpractical<=70 && fpractical>=0)){
+			cout<<"\tInvalid grade! "<<endl;
+			cout<<"\tEnter score for practical part: ";
+			cin>>fpractical;
+		}
+		cout << endl;	
+		FinalsGrade=fwritten+fpractical;
+		cout << " Finals Examination Grade : "<< FinalsGrade*0.20<< "\n\n";
+	
+			
+		//Computes the Total Raw Grades 
+		cin.ignore();
+		finalgrade[i]=IGtransmu+Gtransmu+quizzes+(FinalsGrade*0.20)+(PrelimsGrade*0.20); //Formula for Final Grade
+		//Enter another student
+		cout<<"Continue?";
+		system ("pause");
+		system ("cls");
+	}
+		cout<<"-----------------Student Record--------------------- ";
+		
+	//Display 
+	for(int i=0;i<50;i++){
+		cout <<"\n\t\t "<< name[i];
+		cout<< "\t\t Raw Grade : " << finalgrade[i] << " = ";
+		
+		//Final Grade Transmutation
+		if(finalgrade[i] <= 100 && finalgrade[i]>=95.57)
+			cout<<"1.00, Student Passed!";
+		else if(finalgrade[i]<=95.56 && finalgrade[i]>=91.12)
+			cout<<"1.25, Student Passed!";
+		else if(finalgrade[i]<=91.11 && finalgrade[i]>=86.68)
+			cout<<"1.50, Student Passed!";	
+		else if(finalgrade[i]<=86.67 && finalgrade[i]>=82.23)
+			cout<<"1.75, Student Passed!";
+		else if(finalgrade[i]<=82.22 && finalgrade[i]>=77.79)
+			cout<<"2.00, Student Passed!";
+		else if(finalgrade[i]<=77.78 && finalgrade[i]>=73.34)
+			cout<<"2.25, Student Passed!";
+		else if(finalgrade[i]<=73.33 && finalgrade[i]>=68.90)
+			cout<<"2.50, Student Passed!";		
+		else if(finalgrade[i]<=68.89 && finalgrade[i]>=64.45)
+			cout<<"2.75, Student Passed!";
+		else if(finalgrade[i]<=64.44 && finalgrade[i]>=60.00)
+			cout<<"3.00, Student Passed!";
+		else
+			cout<<"5.00, Student Failed!";
+		cout <<"\n";	
+	}
+	
+   		// sorting the students and their grades
+   	//Selection Sort
+	for (int i=0;i<50;i++)
+	 {
+	for (int j=i+1;j<50;j++)
+	{
+	if( finalgrade[i]<finalgrade[j])
+	{   
+	    s1= finalgrade[i]; //sorts the grade
+	 	finalgrade[i]=finalgrade[j];
+	 	finalgrade[j]=s1;
+		 	
+	 	s2= name[i]; // sorts the name of the student
+	 	name[i]=name[j];
+	 	name[j]=s2;	
+	}
+	}
+	}
+	cout<<endl;
+//outputting the top 10 with their grades
+	for (int a=0;a<10;a++)
+	{
+		cout <<"Rank "<< a+1<< ": " << name[a] <<" : ";
+		if(finalgrade[a] <= 100 && finalgrade[a]>=95.57)
+			cout<< finalgrade[a] << " = 1.00" << '\n';
+		else if(finalgrade[a]<=95.56 && finalgrade[a]>=91.12)
+			cout<< finalgrade[a] << " = 1.25" << '\n';
+		else if(finalgrade[a]<=91.11 && finalgrade[a]>=86.68)
+			cout<< finalgrade[a] << " = 1.50" << '\n';	
+		else if(finalgrade[a]<=86.67 && finalgrade[a]>=82.23)
+			cout<< finalgrade[a] << " = 1.75" << '\n';
+		else if(finalgrade[a]<=82.22 && finalgrade[a]>=77.79)
+			cout<< finalgrade[a] << " = 2.00" << '\n';
+		else if(finalgrade[a]<=77.78 && finalgrade[a]>=73.34)
+			cout<< finalgrade[a] << " = 2.25" << '\n';
+		else if(finalgrade[a]<=73.33 && finalgrade[a]>=68.90)
+			cout<< finalgrade[a] << " = 2.50" << '\n';		
+		else if(finalgrade[a]<=68.89 && finalgrade[a]>=64.45)
+			cout<< finalgrade[a] << " = 2.75" << '\n';
+		else if(finalgrade[a]<=64.44 && finalgrade[a]>=60.00)
+			cout<< finalgrade[a] << " = 3.00" << '\n';
+		else
+			cout<< finalgrade[a] << " = 5.00" << '\n';
+	
+	}	
+	}
